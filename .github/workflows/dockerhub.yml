@@ -28,8 +28,6 @@ jobs:
           echo "Status:    ${{ steps.buildx.outputs.status }}"
           echo "Flags:     ${{ steps.buildx.outputs.flags }}"
           echo "Platforms: ${{ steps.buildx.outputs.platforms }}"
-      - name: "Log into registry"
-        run: echo "${{ secrets.DOCKERHUB_PASSWORD}}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME}}" --password-stdin
       - name: "Build containers"
         run: bash ./build_containers.sh
         env:
